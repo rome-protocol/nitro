@@ -66,7 +66,7 @@ func RecreateMissingStates(chainDb ethdb.Database, bc *core.BlockChain, cacheCon
 		}
 		currentState, err := state.New(currentBlock.Root(), database, nil)
 		if err != nil {
-			_, _, _, err := bc.Processor().Process(currentBlock, previousState, vm.Config{})
+			_, _, _, err := bc.Processor().Process(currentBlock, previousState, vm.Config{}, nil)
 			if err != nil {
 				return fmt.Errorf("processing block %d failed: %w", current, err)
 			}

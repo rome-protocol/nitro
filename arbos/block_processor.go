@@ -324,6 +324,7 @@ func ProduceBlockAdvanced(
 				func(result *core.ExecutionResult) error {
 					return hooks.PostTxFilter(header, state, tx, sender, dataGas, result)
 				},
+				0,
 			)
 			if err != nil {
 				// Ignore this transaction if it's invalid under the state transition function
